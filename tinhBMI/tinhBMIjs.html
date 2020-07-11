@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <form name="ad" id="ad" method="post">
+        <label>Cân nặng</label>
+        <input type="text" name="cannang" id="cannang" placeholder="Nhập cân nặng theo kg" value="">
+        <br>
+        <label>Chiều cao</label>
+        <input type="text" name="chieucao" id="chieucao" placeholder="Nhập chiều cao theo mét" value="">
+        <br>
+    </form>
+
+    <button id="tinh">Tính chỉ số BMI</button>
+    <p>Chỉ số BMI là : <span id="bmi" ></span></p>
+    <p>Phân loại : <span id="phanloai" ></span></p>
+
+</div>
+
+<script type="text/javascript">
+    document.getElementById('tinh').onclick = function () {
+        var cannang = document.getElementById('cannang').value;
+        var chieucao = document.getElementById('chieucao').value;
+
+        document.getElementById('bmi').innerText = (cannang / (chieucao * chieucao));
+
+    var phanloai = cannang / (chieucao * chieucao);
+    if (phanloai < 18.5){
+        document.getElementById('phanloai').innerText= "dưới chuẩn";
+    }else if (phanloai >= 18.5 && phanloai <= 24.9){
+        document.getElementById('phanloai').innerText="Bình thường";
+    }else if (phanloai >= 25 && phanloai <= 29.9){
+        document.getElementById('phanloai').innerText="Thừa cân";
+    }else if (phanloai >= 30 && phanloai <= 34.9){
+        document.getElementById('phanloai').innerText="Béo phì cấp độ 1";
+    }else if (phanloai >= 35 && phanloai <= 39.9){
+        document.getElementById('phanloai').innerText="Béo phì cấp độ 2";
+    }else if (phanloai >= 40){
+        document.getElementById('phanloai').innerText="Béo phì cấp độ 3";
+    }else {
+        document.getElementById('phanloai').innerText="số liệu không hợp lệ";
+    };
+
+    };
+</script>
+</body>
+</html>
